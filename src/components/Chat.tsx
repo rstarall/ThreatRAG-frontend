@@ -19,6 +19,8 @@ const MemoizedMarkdownRenderer = memo(({ content }: { content: string }) => (
   </Typography>
 ));
 
+MemoizedMarkdownRenderer.displayName = 'MemoizedMarkdownRenderer';
+
 const Chat: React.FC<{ siderWidth: number }> = ({ siderWidth = 300 }) => {
   const [value, setValue] = useState('');
   const conversationsRef = useRef<any>(null);
@@ -235,7 +237,7 @@ const Chat: React.FC<{ siderWidth: number }> = ({ siderWidth = 300 }) => {
 
   // 使用 useMemo 缓存消息渲染函数
   const messageRenderer = useMemo(() => {
-    return (content: string, msg?: Message) => {
+    const renderFn = (content: string, msg?: Message) => {
       // 添加调试信息
       if (msg?.retrieved_docs && msg.retrieved_docs.length > 0) {
         console.log('渲染召回文档:', msg.retrieved_docs);
@@ -252,6 +254,8 @@ const Chat: React.FC<{ siderWidth: number }> = ({ siderWidth = 300 }) => {
         </div>
       );
     };
+    renderFn.displayName = 'messageRenderer';
+    return renderFn;
   }, []);
 
   // 优化 commonBubble，添加 Markdown 到依赖数组

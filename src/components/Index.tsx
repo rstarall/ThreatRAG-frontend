@@ -33,8 +33,8 @@ export default function MainLayout({
   const [siderWidth, setSiderWidth] = useState(50);
   const [siderPageWidth, setSiderPageWidth] = useState(defaultSiderWidth - 50);
 
-  // 判断是否显示sideContainer（仅在 /chat 页面显示）
-  const shouldShowSideContainer = pathname.startsWith('/chat');
+  // 判断是否显示sideContainer（仅在 /chat 和 /claw 页面显示）
+  const shouldShowSideContainer = pathname.startsWith('/chat') || pathname.startsWith('/claw');
 
   useEffect(() => {
     // 当不显示 sideContainer 时，不需要保留上次 chat 调整的宽度，避免布局计算残留。

@@ -10,6 +10,7 @@ import {
     BulbOutlined,
     DeploymentUnitOutlined,
     SettingOutlined,
+    RobotOutlined,
 
   } from '@ant-design/icons';
 import { useFixedSiderWidth } from './Index';
@@ -18,6 +19,11 @@ const items: MenuProps['items'] = [
     key: '/chat',
     label: '实时聊天',
     icon: <MessageOutlined />,
+  },
+  {
+    key: '/claw',
+    label: '龙虾聊天',
+    icon: <RobotOutlined />,
   },
   {
     key: '/build',
@@ -30,19 +36,20 @@ const items: MenuProps['items'] = [
     icon: <ControlOutlined />,
   },
   {
-    key: '/data',
-    label: '知识库',
-    icon: <BulbOutlined />,
-  },
-  {
     key: '/kg',
     label: '知识图谱',
     icon: <DeploymentUnitOutlined />,
-  },
+  },  
+  {
+    key: '/data',
+    label: '知识库',
+    icon: <BulbOutlined />,
+  }
 ];
 
 const sideContainerWidthList:Record<string,number> = {
   '/chat': 340,
+  '/claw': 340,
   '/build': 340,
   '/inference': 340,
   '/data': 340,

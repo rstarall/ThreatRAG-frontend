@@ -1,5 +1,5 @@
 {
-  "name": "br-cti-chat",
+  "name": "threatrag-frontend",
   "version": "0.1.0",
   "private": true,
   "main": "electron-starter.js",
